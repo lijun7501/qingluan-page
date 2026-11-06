@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>青鸾 · 图纸批量自动转换汇编工具 — 推广主页</title>
+<title>青鸾 v2.9.27 · 图纸批量自动转换汇编工具</title>
+<meta name="description" content="青鸾 v2.9.27：把成百上千张 DWG / DXF 图纸自动识别图框、按图号排序、一键出 PDF 并自动成册归档。设计院、施工、审图、造价、档案人的批量出图利器，免费发布。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="青鸾">
+<meta property="og:title" content="青鸾 v2.9.27 · 图纸批量自动转换汇编工具">
+<meta property="og:description" content="自动识别图框、按图号排序、一键出 PDF、自动成册归档；隐藏注释取代 OCR，深 / 浅 / 随系统三态主题。免费发布。">
+<meta property="og:url" content="https://lijun7501.github.io/qingluan-page/">
 <meta name="description" content="青鸾把成百上千张 DWG / DXF 图纸自动识别图框、按图号排序、一键出 PDF 并自动成册归档。设计院、施工、审图、造价、档案人的批量出图利器。">
 <style>
   :root{
@@ -454,7 +460,7 @@
     <div class="brand">
       <span class="logo"></span>
       青鸾
-      <span class="vt">v2.9.24</span>
+      <span class="vt">v2.9.27</span>
     </div>
     <div class="navlinks" id="navlinks">
       <span class="nav-ind" id="navInd"></span>
@@ -493,7 +499,7 @@
   <div class="glow g1"></div><div class="glow g2"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <span class="ver"><span class="dot"></span>当前版本 <b>v2.9.24</b> <span class="new">NEW</span></span>
+      <span class="ver"><span class="dot"></span>当前版本 <b>v2.9.27</b> <span class="new">NEW</span></span>
       <h1>把成百上千张图纸<br>变成<span class="ac">一本合规的册</span></h1>
       <p class="lead">青鸾自动识别图框、按图号排序、挂载图签字段、一键出 PDF 并装配封面 / 目录 / 封底成册。设计院、施工、审图、造价、档案人的批量出图利器。</p>
       <p class="slogan">— 让出图归档从「半天手工」到「片刻自动」</p>
@@ -529,7 +535,7 @@
     <div class="metric"><div class="num" data-to="14">0</div><div class="lab">自动识别图签字段</div></div>
     <div class="metric"><div class="num" data-to="6">0</div><div class="lab">步全自动出图流程</div></div>
     <div class="metric"><div class="num" data-to="3">0</div><div class="lab">态界面主题</div></div>
-    <div class="metric"><div class="num" data-to="88">0<span>MB</span></div><div class="lab">安装包体积</div></div>
+    <div class="metric"><div class="num" data-to="91">0<span>MB</span></div><div class="lab">安装包体积</div></div>
     <div class="metric"><div class="num" data-to="2">0</div><div class="lab">种部署方式</div></div>
   </div>
 </div>
@@ -573,7 +579,7 @@
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="tag">核心能力</span>
-      <h2>九项能力，<span class="hl">从识别到归档</span>全覆盖</h2>
+      <h2>十一项能力，<span class="hl">从识别到归档</span>全覆盖</h2>
       <p class="sub">不是「能转 PDF」就够了，而是把交付链路上每一处手工都自动化。</p>
     </div>
     <div class="bento">
@@ -725,9 +731,32 @@
     <div class="timeline reveal">
       <div class="tl now">
         <div class="tl-head">
-          <span class="tl-v">v2.9.24</span>
+          <span class="tl-v">v2.9.27</span>
           <span class="tl-date">当前版本</span>
           <span class="tl-badge n">最新</span>
+        </div>
+        <ul>
+          <li><b>中文 Windows 打印机列表可能为空</b>：打印机枚举子进程输出未指定编码，含特殊字符的打印机名解码失败后异常被静默吞掉。现强制按 UTF-8 解码并容错替换，打印列表恢复完整。</li>
+        </ul>
+      </div>
+      <div class="tl">
+        <div class="tl-head"><span class="tl-v">v2.9.26</span><span class="tl-date">成册与句柄</span><span class="tl-badge f">修复</span></div>
+        <ul>
+          <li><b>自然语言描述成册失效</b>：「自然语言描述成册」的意图被写进废弃的配置对象，对最终输出静默无效；现改为作用于本次任务实际使用的配置，描述成册恢复生效。</li>
+          <li><b>句柄耗尽</b>：批量读取 PDF 元数据 / 文本与自检核对时文件句柄未关闭，大批量作业会耗尽系统句柄；现统一改为上下文管理器即时释放（共五处）。</li>
+        </ul>
+      </div>
+      <div class="tl">
+        <div class="tl-head"><span class="tl-v">v2.9.25</span><span class="tl-date">健壮性</span><span class="tl-badge f">修复</span></div>
+        <ul>
+          <li><b>一批稳定性问题</b>：新建 Excel 报表崩溃、界面自检卡死（改为后台线程池异步执行）、打印份数不生效、中文字体名被误判为 SHX 导致出图豆腐块、非十六进制颜色中断整页渲染、旧版配置键静默丢失、空分组排序崩溃、多页 PDF 成册时目录页次串号、「整批成册」开关不生效、旋转图框出图被放大 100 倍、PDF 读取句柄泄漏、字体别名临时目录残留，均已修复。</li>
+        </ul>
+      </div>
+      <div class="tl">
+        <div class="tl-head">
+          <span class="tl-v">v2.9.24</span>
+          <span class="tl-date">折行修复</span>
+          <span class="tl-badge f">修复</span>
         </div>
         <ul>
           <li><b>多行文字折行三处隐性失效</b>：<code>\L</code> <code>\O</code> <code>\K</code> 等单字符命令被误当带参命令，把后文一路吞到下一个分号，长段落被判成「很短」而不折行；<code>\U+00B0</code> 转义同样吞后文；<code>\S1/2;</code> 堆叠分数分子分母不计入宽度。现已按 ezdxf 单字符命令表解析，字距按实测校准，行尾不再被单元格右边框切掉。</li>
@@ -804,7 +833,7 @@
     <div class="sec-head center reveal">
       <span class="tag">对比</span>
       <h2>青鸾 vs <span class="hl">传统做法</span></h2>
-      <p class="sub">同类工具常超 190MB，青鸾安装包约 88MB。</p>
+      <p class="sub">同类工具常超 190MB，青鸾安装包约 91MB。</p>
     </div>
     <div class="cmp-wrap reveal"><table class="cmp">
       <thead><tr><th style="width:26%">能力</th><th style="width:37%">青鸾</th><th>传统做法</th></tr></thead>
@@ -814,7 +843,7 @@
         <tr><td>连页图</td><td>按页号归位，分册不拆册</td><td class="no">页序错乱、册子拆散</td></tr>
         <tr><td>多行文字</td><td>按单元格宽度折行，标点不入行首</td><td class="no">整段压一行、横向溢出</td></tr>
         <tr><td>打印样式</td><td>按图纸样式表还原线宽颜色</td><td class="no">常需手动处理</td></tr>
-        <tr><td>安装体积</td><td>约 88MB（已剔除 OCR）</td><td class="no">常超 190MB</td></tr>
+        <tr><td>安装体积</td><td>约 91MB（已剔除 OCR）</td><td class="no">常超 190MB</td></tr>
         <tr><td>界面主题</td><td>深 / 浅 / 随系统</td><td class="no">多为固定单色</td></tr>
       </tbody>
     </table></div>
@@ -865,7 +894,7 @@
     <div class="faq-list reveal">
       <div class="faq-item open">
         <button class="faq-q">青鸾是免费的吗？<span class="pm">+</span></button>
-        <div class="faq-a"><div class="inner">是的。<b>青鸾 v2.9.24 免费发布</b>，安装版与绿色版均可免费使用，无功能阉割、无使用期限、无需联网激活。</div></div>
+        <div class="faq-a"><div class="inner">是的。<b>青鸾 v2.9.27 免费发布</b>，安装版与绿色版均可免费使用，无功能阉割、无使用期限、无需联网激活。</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">DWG 和 DXF 都能直接用吗？<span class="pm">+</span></button>
@@ -873,7 +902,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">为什么不用 OCR 识别图签？<span class="pm">+</span></button>
-        <div class="faq-a"><div class="inner">OCR 易错且需人工校对。青鸾改用<b>隐藏注释机制</b>：出图时挂载隐藏 Text Annot 记录图签字段，导入时优先读取，识别又快又准。字段优先级为：<b>隐藏注释 → PDF 文本层 → 元数据 → 文件名</b>。也因此剔除了笨重的 OCR 组件，安装包仅约 88MB。</div></div>
+        <div class="faq-a"><div class="inner">OCR 易错且需人工校对。青鸾改用<b>隐藏注释机制</b>：出图时挂载隐藏 Text Annot 记录图签字段，导入时优先读取，识别又快又准。字段优先级为：<b>隐藏注释 → PDF 文本层 → 元数据 → 文件名</b>。也因此剔除了笨重的 OCR 组件，安装包仅约 91MB。</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">内网 / 无网环境能用吗？<span class="pm">+</span></button>
@@ -895,18 +924,18 @@
 <section id="download">
   <div class="wrap">
     <div class="dl reveal">
-      <h2>立即获取<span class="hl">青鸾 v2.9.24</span></h2>
+      <h2>立即获取<span class="hl">青鸾 v2.9.27</span></h2>
       <p class="sub">安装版 / 绿色版任选，首次启动内置摆渡器安装向导。</p>
       <div class="dl-grid">
         <div class="dl-card">
-          <div class="hd"><span class="appic"></span><div><h4>安装版</h4><div class="sz">QingLuan-Setup-v2.9.24.exe · 88 MB</div></div></div>
+          <div class="hd"><span class="appic"></span><div><h4>安装版</h4><div class="sz">QingLuan-Setup-v2.9.27.exe · 91 MB</div></div></div>
           <p>标准安装，自动创建开始菜单与卸载项，适合日常办公机长期使用。</p>
-          <a class="btn btn-primary" href="mailto:35576113@qq.com?subject=%E9%9D%92%E9%B8%BE%20v2.9.24%20%E5%AE%89%E8%A3%85%E7%89%88%E8%8E%B7%E5%8F%96">加 QQ 获取安装包</a>
+          <a class="btn btn-primary" href="mailto:35576113@qq.com?subject=%E9%9D%92%E9%B8%BE%20v2.9.27%20%E5%AE%89%E8%A3%85%E7%89%88%E8%8E%B7%E5%8F%96">加 QQ 获取安装包</a>
         </div>
         <div class="dl-card">
-          <div class="hd"><span class="appic"></span><div><h4>绿色版</h4><div class="sz">青鸾-绿色版-v2.9.24.zip · 86 MB</div></div></div>
+          <div class="hd"><span class="appic"></span><div><h4>绿色版</h4><div class="sz">青鸾-图纸批量转换汇编-绿色版-v2.9.27.zip · 89 MB</div></div></div>
           <p>解压即用、删除即卸载，不写注册表，适合内网、便携与多机部署。</p>
-          <a class="btn btn-ghost" href="mailto:35576113@qq.com?subject=%E9%9D%92%E9%B8%BE%20v2.9.24%20%E7%BB%BF%E8%89%B2%E7%89%88%E8%8E%B7%E5%8F%96">加 QQ 获取绿色版</a>
+          <a class="btn btn-ghost" href="mailto:35576113@qq.com?subject=%E9%9D%92%E9%B8%BE%20v2.9.27%20%E7%BB%BF%E8%89%B2%E7%89%88%E8%8E%B7%E5%8F%96">加 QQ 获取绿色版</a>
         </div>
       </div>
       <div class="tip">
@@ -925,7 +954,7 @@
       <a href="#faq">常见问题</a>
       <a href="#download">下载</a>
     </div>
-    <div>基于 Python 3.13 + PySide6 构建 &nbsp;·&nbsp; v2.9.24 &nbsp;·&nbsp; 免费发布<br>
+    <div>基于 Python 3.13 + PySide6 构建 &nbsp;·&nbsp; v2.9.27 &nbsp;·&nbsp; 免费发布<br>
       <span class="fcontact">QQ <a href="https://wpa.qq.com/msgrd?uin=35576113" target="_blank" rel="noopener">35576113</a> &nbsp;·&nbsp; 邮箱 <a href="mailto:35576113@qq.com">35576113@qq.com</a></span>
     </div>
   </div>
@@ -1053,6 +1082,14 @@
   initActive();
   window.addEventListener('load', initActive);
   window.addEventListener('resize', function(){ moveInd(); if(window.innerWidth > 880) closeMenu(); });
+})();
+</script>
+
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<script>
+(function(){
+  function revealAll(){ var els=document.querySelectorAll('.reveal'); for(var i=0;i<els.length;i++){ els[i].classList.add('show'); } }
+  if (location.hash) { revealAll(); window.addEventListener('hashchange', revealAll); }
 })();
 </script>
 </body>

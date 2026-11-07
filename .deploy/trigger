@@ -1,2 +1,2 @@
-run-at: 2026-11-07T03:58+08:00
-target: v2.9.27 with pan links (setup ety3 + dwg-converter fdas)
+run-at: 2026-11-08T01:02+08:00
+target: v2.9.27 + visit stats (busuanzi pv/uv in footer)

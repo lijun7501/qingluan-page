@@ -1,0 +1,22 @@
+name: delete-rest
+on:
+  push:
+    paths:
+      - '.github/workflows/delete-rest.yml'
+permissions:
+  contents: write
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove remaining site files
+        run: |
+          git config user.name 'site-remover'
+          git config user.email 'site-remover@users.noreply.github.com'
+          git rm -f README.md || true
+          git rm -f hero.png || true
+          git rm -f .github/workflows/remove-site.yml || true
+          git rm -f .github/workflows/deploy-page.yml || true
+          git commit -m 'chore: remove remaining site files' || true
+          git push

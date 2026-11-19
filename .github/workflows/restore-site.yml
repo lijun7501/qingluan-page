@@ -1,0 +1,22 @@
+name: restore-site
+on:
+  push:
+    paths:
+      - '.github/workflows/restore-site.yml'
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch page and restore site
+        run: |
+          git config user.name 'site-restorer'
+          git config user.email 'site-restorer@users.noreply.github.com'
+          curl -fsSL 'https://aka.doubaocdn.com/s/ZD8lokl1FS' -o index.html
+          printf '%s' 'qingluancad.cn' > CNAME
+          ls -l index.html
+          git add -f index.html CNAME
+          git commit -m 'chore: restore published site and custom domain' || true
+          git push

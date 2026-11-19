@@ -14,9 +14,9 @@ jobs:
         run: |
           git config user.name 'site-restorer'
           git config user.email 'site-restorer@users.noreply.github.com'
-          curl -fsSL 'https://aka.doubaocdn.com/s/ZD8lokl1FS' -o index.html
+          curl -fsSL 'https://aka.doubaocdn.com/s/CbT039bO59' -o index.html
           printf '%s' 'qingluancad.cn' > CNAME
           ls -l index.html
           git add -f index.html CNAME
-          git commit -m 'chore: restore published site and custom domain' || true
+          git commit -m 'chore: publish page with ICP filing number' || true
           git push
